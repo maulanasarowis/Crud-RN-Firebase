@@ -90,7 +90,7 @@ export default class EditKontak extends Component {
         />
 
         <TouchableOpacity style={styles.tombol} onPress={() => this.onSubmit()}>
-          <Text style={styles.textTombol}>SUBMIT</Text>
+          <Text style={styles.textTombol}>Simpan</Text>
         </TouchableOpacity>
       </View>
     );

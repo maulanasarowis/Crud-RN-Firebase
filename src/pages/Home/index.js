@@ -1,7 +1,7 @@
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React, {Component} from 'react';
-import {Text, StyleSheet, View, Alert} from 'react-native';
+import {Text, StyleSheet, View, Alert, ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {CardKontak} from '../../components';
 import FIREBASE from '../../config/firebase';
@@ -70,21 +70,23 @@ export default class Home extends Component {
           <Text style={styles.title}>Daftar Kontak</Text>
           <View style={styles.garis} />
         </View>
-        <View style={styles.listKontak}>
-          {kontaksKey.length > 0 ? (
-            kontaksKey.map((key) => (
-              <CardKontak
-                key={key}
-                kontakItem={kontaks[key]}
-                id={key}
-                {...this.props}
-                removeData={this.removeData}
-              />
-            ))
-          ) : (
-            <Text>Daftar Kontak Kosong</Text>
-          )}
-        </View>
+        <ScrollView>
+          <View style={styles.listKontak}>
+            {kontaksKey.length > 0 ? (
+              kontaksKey.map((key) => (
+                <CardKontak
+                  key={key}
+                  kontakItem={kontaks[key]}
+                  id={key}
+                  {...this.props}
+                  removeData={this.removeData}
+                />
+              ))
+            ) : (
+              <Text>Daftar Kontak Kosong</Text>
+            )}
+          </View>
+        </ScrollView>
         <View style={styles.wrapperButton}>
           <TouchableOpacity
             style={styles.btnTambah}
