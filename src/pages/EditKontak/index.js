@@ -92,6 +92,7 @@ export default class EditKontak extends Component {
         <TouchableOpacity style={styles.tombol} onPress={() => this.onSubmit()}>
           <Text style={styles.textTombol}>Simpan</Text>
         </TouchableOpacity>
+        <Text style={styles.dev}>Developed by Maulana Sarowis</Text>
       </View>
     );
   }
@@ -100,7 +101,7 @@ export default class EditKontak extends Component {
 const styles = StyleSheet.create({
   pages: {flex: 1, padding: 30},
   tombol: {
-    backgroundColor: 'black',
+    backgroundColor: '#2c3e50',
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
@@ -110,5 +111,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 16,
+  },
+  dev: {
+    padding: 65,
+    textAlign: 'center',
+    fontSize: 12,
+    fontStyle: 'italic',
   },
 });

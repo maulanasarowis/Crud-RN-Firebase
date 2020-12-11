@@ -15,13 +15,13 @@ const CardKontak = ({id, kontakItem, navigation, removeData}) => {
       <View style={styles.icon}>
         <FontAwesomeIcon
           icon={faEdit}
-          color={'orange'}
+          color={'#1abc9c'}
           size={25}
           onPress={() => navigation.navigate('EditKontak', {id: id})}
         />
         <FontAwesomeIcon
           icon={faTimes}
-          color={'red'}
+          color={'#e74c3c'}
           size={25}
           onPress={() => removeData(id)}
         />

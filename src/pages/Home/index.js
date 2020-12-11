@@ -1,11 +1,10 @@
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faPlus, faSearch} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React, {Component} from 'react';
 import {Text, StyleSheet, View, Alert, ScrollView} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import {CardKontak} from '../../components';
 import FIREBASE from '../../config/firebase';
-
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -64,12 +63,25 @@ export default class Home extends Component {
     // console.log('Kontaks : ', this.state.kontaks);
     // console.log('Kontaks key : ', this.state.kontaksKey);
     const {kontaks, kontaksKey} = this.state;
+    // const fillterData = kontaksKey.filter((item) => {
+    //   return item(searchKey) >= 0;
+    // });
     return (
       <View style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.title}>Daftar Kontak</Text>
           <View style={styles.garis} />
         </View>
+
+        <View style={styles.search}>
+          <FontAwesomeIcon
+            icon={faSearch}
+            color={'gray'}
+            size={18}
+            style={styles.icon}></FontAwesomeIcon>
+          <TextInput placeholder="cari kontak ..."></TextInput>
+        </View>
+
         <ScrollView>
           <View style={styles.listKontak}>
             {kontaksKey.length > 0 ? (
@@ -86,7 +98,9 @@ export default class Home extends Component {
               <Text>Daftar Kontak Kosong</Text>
             )}
           </View>
+          <></>
         </ScrollView>
+
         <View style={styles.wrapperButton}>
           <TouchableOpacity
             style={styles.btnTambah}
@@ -109,6 +123,23 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  search: {
+    flexDirection: 'row',
+    marginTop: 8,
+    backgroundColor: 'white',
+    height: 40,
+    marginHorizontal: 30,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
+  icon: {marginVertical: 11, marginLeft: 10},
   listKontak: {
     paddingHorizontal: 30,
     marginTop: 20,
@@ -126,7 +157,7 @@ const styles = StyleSheet.create({
   },
   btnTambah: {
     padding: 20,
-    backgroundColor: 'skyblue',
+    backgroundColor: '#2c3e50',
     borderRadius: 30,
     shadowColor: '#000',
     shadowOffset: {
